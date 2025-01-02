@@ -303,8 +303,6 @@
                                         @php
                                             $file = $portfolio->file;
                                             $file_url = asset('storage/' . $file);
-                                            //$file_url = \Illuminate\Support\Facades\Storage::url($file);
-                                            //$file_url = Storage::get($file);
                                             $file_ext = pathinfo($file, PATHINFO_EXTENSION);
                                         @endphp
 
@@ -313,7 +311,6 @@
                                         @else
                                             <img class="pic" src="{{ $file_url }}" alt="{{ $portfolio->name }}" />
                                         @endif
-                                            <!-- Storage::disk('public')->url(session('$portfolio->file')) -->
                                     </li>
                             
                                     <div style="margin-top: 1%">
