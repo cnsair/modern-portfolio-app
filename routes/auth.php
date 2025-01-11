@@ -27,8 +27,13 @@ Route::middleware('guest')->group(function () {
     Route::post('testimony', [TestimonyController::class, 'store'])
                 ->name('testimony.store');
 
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+    // Route::get('register', [RegisteredUserController::class, 'create'])
+    //             ->name('register');
+
+    Route::get('register', function () {
+        return redirect('login')->with('error', 'Registration is disabled!');
+        // abort(403, 'Registration is disabled!');
+    })->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
